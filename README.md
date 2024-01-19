@@ -1,1 +1,2 @@
-# jarvis
+Trying to make my own AI assistant<br>
+Work in progress...
