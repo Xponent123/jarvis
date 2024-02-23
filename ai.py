@@ -14,7 +14,7 @@ import requests
 from io import BytesIO
 import PIL
 from PIL import Image
-openai.api_key="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"
+openai.api_key="yourkey" #enter your openAI api key
 speaker=win32com.client.Dispatch("SAPI.SpVoice")
 timem=datetime.datetime.now(pytz.timezone('Asia/Kolkata'))
 def saym(text):
@@ -52,10 +52,10 @@ def doctopdf():
     name=input("enter name of file: ")
     output=input("name of output file: ")
     if(t=="default"):
-        source_file = fr"C:\Users\Jal Parikh\Documents\OneDrive\Documents\{name}.docx"
+        source_file = fr"adress{name}.docx" # adress to the file
     else:
         source_file = fr"{t}\{name}.docx";
-    output_file = fr"C:\Users\Jal Parikh\Downloads\{output}.pdf"
+    output_file = fr"adress{output}.pdf" # adress to store pdf 
     convert(source_file, output_file)
     return
 def openapps_and_webm(t):
@@ -64,24 +64,6 @@ def openapps_and_webm(t):
         webbrowser.open_new(f"https://www.{splitm[-1]}.com/")
         saym(f"opening .{splitm[-1]}")
         return
-    if "data structures and algorithms" in t:
-        webbrowser.open_new("https://courses.iiit.ac.in/course/view.php?id=4233")
-        saym(f"opening dsa course in moodle")
-    elif "information communication" in t:
-        webbrowser.open_new("https://courses.iiit.ac.in/course/view.php?id=4205")
-        saym(f"opening information communication course in moodle")
-    elif "analog electronic circuits" in t:
-        webbrowser.open_new("https://courses.iiit.ac.in/course/view.php?id=4299")
-        saym(f"opening analog electronic circuits course in moodle")
-    elif "linear algebra" in t:
-        webbrowser.open_new("https://courses.iiit.ac.in/course/view.php?id=4234")
-        saym(f"opening linear algebra course in moodle")
-    elif "moodle" in t:
-        webbrowser.open_new("courses.iiit.ac.in")
-        saym("opening moodle")
-    elif "mess" in t:
-        webbrowser.open_new("mess.iiit.ac.in")
-        saym("opening mess portal")
     elif "youtube" in t and "search" in t:
         saym("what do you want to search")
         print("what do you want to search: ")
@@ -89,9 +71,6 @@ def openapps_and_webm(t):
         search=listenm()
         webbrowser.open_new(f"https://www.youtube.com/results?search_query={search}")
         saym(f"opening {search}")
-    elif "ims" in t or "i m s" in t or "attendance" in t:
-        webbrowser.open_new("ims.iiit.ac.in")
-        saym("opening attendance")
     elif "g p t" in t or "gpt" in t:
         webbrowser.open_new("https://chat.openai.com/")
         saym("opening chat G P T")
@@ -126,9 +105,10 @@ def openapps_and_webm(t):
     return
 def highbeats():
     try:
-        username="31q6necdtg5zwnzfh36vqt3vghni"
-        client_id="4c26ec3bf4f64cc58b55a65c87d693c6"
-        client_secret="a664f192907d4b779b4eee5fd058db42"
+        # add your username,xclient id, client secret
+        username="your username"
+        client_id="your client id" 
+        client_secret="your client secret"
         redirect_uri = 'http://google.com/callback/'
         oauth_object = spotipy.SpotifyOAuth(client_id, client_secret,redirect_uri)
         token_dict = oauth_object.get_access_token()
@@ -164,7 +144,7 @@ def imagem():
         res = requests.get(um)
         imagem = res.content
         im = Image.open(BytesIO(imagem))
-        im.save(fr"C:\Users\Jal Parikh\Downloads\{namem[0]}.png")
+        im.save(fr"address")
         print("image made")
         saym("image made")
 
@@ -174,13 +154,13 @@ def imagem():
 
 if __name__=='__main__':
     if(timem.hour<12 and timem.hour>4):
-        saym("Good morning Jal")
+        saym("Good morning ")
     elif(timem.hour>=12 and timem.hour<17):
-        saym("Good afternoon Jal")
+        saym("Good afternoon ")
     elif(timem.hour>=17 and timem.hour<20):
-        saym("Good evening Jal")
+        saym("Good evening ")
     else:
-        saym("Hello Jal")
+        saym("Hello ")
     while True:
         t=listenm()
         #t=input()
